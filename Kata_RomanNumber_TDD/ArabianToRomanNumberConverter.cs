@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+
 namespace Kata_RomanNumber_TDD
 {
     public class ArabianToRomanNumberConverter
@@ -21,30 +23,29 @@ namespace Kata_RomanNumber_TDD
             }
             if (toBeConverted >= 10)
             {
-                string result_10 = "X";
+                var result_10 = (new StringBuilder()).Append("X");
                 toBeConverted = toBeConverted - 10;
-                for (int it = 0; it < toBeConverted; it++)
-                {
-                    result_10 = result_10 + "I";
-                }
-                return result_10;
+                Append_n_I(toBeConverted, result_10);
+                return result_10.ToString();
             }
             if (toBeConverted >= 5)
             {
-                string result_5 = "V";
+                var result_5 = (new StringBuilder()).Append("V");
                 toBeConverted = toBeConverted - 5;
-                for (int it = 0; it < toBeConverted; it++)
-                {
-                    result_5 = result_5 + "I";
-                }
-                return result_5;
+                Append_n_I(toBeConverted, result_5);
+                return result_5.ToString();
             }
-            string result = string.Empty;
-            for (int it = 0; it < toBeConverted; it++)
+            var result = new StringBuilder();
+            Append_n_I(toBeConverted, result);
+            return result.ToString();
+        }
+
+        private void Append_n_I(int n, StringBuilder toBeAppended)
+        {
+            for (int it = 0; it < n; it++)
             {
-                result = result + "I";
+                toBeAppended.Append("I");
             }
-            return result;
         }
     }
 }
