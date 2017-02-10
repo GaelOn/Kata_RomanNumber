@@ -1,21 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace Kata_RomanNumber_TDD
 {
     public class ArabianToRomanNumberConverter
     {
+        public static Dictionary<int, string> SpecialCase;
+
+        static ArabianToRomanNumberConverter()
+        {
+            SpecialCase = new Dictionary<int, string>();
+            SpecialCase.Add(4, "IV");
+            SpecialCase.Add(9, "IX");
+            SpecialCase.Add(10, "X");
+        }
+
         public string Convert(int toBeConverted)
         {
-            if (toBeConverted == 4)
+            if (SpecialCase.ContainsKey(toBeConverted))
             {
-                return "IV";
-            }
-            if (toBeConverted == 9)
-            {
-                return "IX";
-            }
-            if (toBeConverted == 10)
-            {
-                return "X";
+                return SpecialCase[toBeConverted];
             }
             if (toBeConverted >= 5)
             {
