@@ -9,6 +9,10 @@ namespace Kata_RomanNumber_TDD
             {
                 return "IV";
             }
+            if (toBeConverted == 5)
+            {
+                return "V";
+            }
             string result = string.Empty;
             for (int it = 0; it < toBeConverted; it++)
             {
