@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
-using System;
+using FluentAssertions;
 using System.Collections;
+using Kata_RomanNumber_TDD;
 
 namespace Test_RomanNumberConverter
 {
@@ -10,16 +11,16 @@ namespace Test_RomanNumberConverter
         ArabianToRomanNumberConverter _converter;
 
         [SetUp]
-        void Init()
+        public void Init()
         {
-            var _converter = new ArabianToRomanNumberConverter();
+            _converter = new ArabianToRomanNumberConverter();
         }
 
         [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]
         public void TestCase(int toBeConverted, string intendedValue)
         {
             var convertionResult = _converter.Convert(toBeConverted);
-            convertionResult.ShouldBeEquivalent(intendedValue, $"because when i try to convert {toBeconverted} then i should get {intendedValue} as a result not {convertionResult}.");
+            convertionResult.ShouldBeEquivalentTo(intendedValue, $"because when i try to convert {toBeConverted} then i should get {intendedValue} as a result not {convertionResult}.");
         }
     }
 
@@ -29,7 +30,7 @@ namespace Test_RomanNumberConverter
         {
             get
             {
-                yield return new TestCaseData(1, 'I');
+                yield return new TestCaseData(1, "I");
             }
         }
     }
