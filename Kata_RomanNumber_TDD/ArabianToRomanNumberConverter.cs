@@ -13,6 +13,7 @@ namespace Kata_RomanNumber_TDD
             SpecialCase.Add(9, "IX");
             SpecialCase.Add(10, "X");
             SpecialCase.Add(11, "XI");
+            SpecialCase.Add(12, "XII");
         }
 
         public string Convert(int toBeConverted)
