@@ -35,6 +35,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(3, "III");
                 yield return new TestCaseData(4, "IV");
                 yield return new TestCaseData(5, "V");
+                yield return new TestCaseData(6, "VI");
             }
         }
     }
