@@ -1,9 +1,25 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Test_RomanNumberConverter/Test.cs">
+﻿<Properties StartupConfiguration="{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}|Tests unitaires">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD État">
     <Files>
-      <File FileName="Kata_RomanNumber_TDD/MyClass.cs" Line="1" Column="1" />
-      <File FileName="Test_RomanNumberConverter/Test.cs" Line="1" Column="1" />
+      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="1" Column="1" />
+      <File FileName="Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" Line="31" Column="16" />
+      <File FileName="Kata_RomanNumber_TDD État" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Kata_RomanNumber_TDD" expanded="True" selected="True">
+            <Node name="Test_RomanNumberConverter" expanded="True">
+              <Node name="Test_RomanNumberConverter" expanded="True">
+                <Node name="Test" expanded="True">
+                  <Node name="TestCase" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -11,4 +27,5 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Test__RomanNumberConverter PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

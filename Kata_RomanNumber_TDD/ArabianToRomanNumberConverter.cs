@@ -5,6 +5,10 @@ namespace Kata_RomanNumber_TDD
     {
         public string Convert(int toBeConverted)
         {
+            if (toBeConverted == 4)
+            {
+                return "IV";
+            }
             if (toBeConverted == 1)
             {
                 return "I";
