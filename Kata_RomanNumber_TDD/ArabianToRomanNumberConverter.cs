@@ -13,6 +13,10 @@ namespace Kata_RomanNumber_TDD
             {
                 return "IX";
             }
+            if (toBeConverted == 10)
+            {
+                return "X";
+            }
             if (toBeConverted >= 5)
             {
                 string result_5 = "V";
