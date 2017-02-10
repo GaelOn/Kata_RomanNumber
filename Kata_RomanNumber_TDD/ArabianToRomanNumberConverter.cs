@@ -5,7 +5,7 @@ namespace Kata_RomanNumber_TDD
     {
         public string Convert(int toBeConverted)
         {
-            return "I";
+            return toBeConverted == 1 ? "I" : "II";
         }
     }
 }
