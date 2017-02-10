@@ -11,9 +11,6 @@ namespace Kata_RomanNumber_TDD
             SpecialCase = new Dictionary<int, string>();
             SpecialCase.Add(4, "IV");
             SpecialCase.Add(9, "IX");
-            SpecialCase.Add(10, "X");
-            SpecialCase.Add(11, "XI");
-            SpecialCase.Add(12, "XII");
         }
 
         public string Convert(int toBeConverted)
@@ -21,6 +18,16 @@ namespace Kata_RomanNumber_TDD
             if (SpecialCase.ContainsKey(toBeConverted))
             {
                 return SpecialCase[toBeConverted];
+            }
+            if (toBeConverted >= 10)
+            {
+                string result_10 = "X";
+                toBeConverted = toBeConverted - 10;
+                for (int it = 0; it < toBeConverted; it++)
+                {
+                    result_10 = result_10 + "I";
+                }
+                return result_10;
             }
             if (toBeConverted >= 5)
             {
