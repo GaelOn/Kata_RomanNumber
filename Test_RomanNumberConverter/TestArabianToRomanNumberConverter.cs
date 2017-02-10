@@ -31,6 +31,7 @@ namespace Test_RomanNumberConverter
             get
             {
                 yield return new TestCaseData(1, "I");
+                yield return new TestCaseData(2, "II");
             }
         }
     }
