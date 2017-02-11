@@ -33,7 +33,7 @@ namespace Kata_RomanNumber_TDD
                 romanNumber.Append("X");
                 arabianNumber -= 10;
             }
-            else if (arabianNumber >= 5)
+            if (arabianNumber >= 5)
             {
                 romanNumber.Append("V");
                 arabianNumber -= 5;
