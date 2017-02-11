@@ -1,26 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Kata_RomanNumber_TDD
 {
-    public class ArabianToRomanNumberConverter
+    public class RomanUnit : IEnumerable<int>
     {
-        public static Dictionary<int, string> SpecialCase;
+        public static Dictionary<int, string> Member;
 
-        static ArabianToRomanNumberConverter()
+        static RomanUnit()
         {
-            SpecialCase = new Dictionary<int, string>();
-            SpecialCase.Add(4, "IV");
-            SpecialCase.Add(9, "IX");
+            Member = new Dictionary<int, string>();
+            Member.Add(10, "X");
+            Member.Add(9, "IX");
+            Member.Add(5, "V");
+            Member.Add(4, "IV");
+            Member.Add(1, "I");
         }
 
+        public IEnumerator<int> GetEnumerator()
+        {
+            return Member.Keys.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
+
+    public class ArabianToRomanNumberConverter
+    {
         public string Convert(int toBeConverted)
         {
-            if (SpecialCase.ContainsKey(toBeConverted))
-            {
-                return SpecialCase[toBeConverted];
-            }
             var romanNumber = new StringBuilder();
             AppendRomanUnit(romanNumber, toBeConverted);
             return romanNumber.ToString();
@@ -28,35 +41,16 @@ namespace Kata_RomanNumber_TDD
 
         private int AppendRomanUnit(StringBuilder romanNumber, int arabianNumber)
         {
-            if (arabianNumber >= 10)
+            var romanNumberUnitProvider = new RomanUnit();
+            foreach (var currentUnit in romanNumberUnitProvider)
             {
-                romanNumber.Append("X");
-                arabianNumber -= 10;
-            }
-            if (arabianNumber >= 5)
-            {
-                romanNumber.Append("V");
-                arabianNumber -= 5;
-            }
-            if (SpecialCase.ContainsKey(arabianNumber))
-            {
-                romanNumber.Append(SpecialCase[arabianNumber]);
-                arabianNumber = 0;
-            }
-            if (arabianNumber < 4)
-            {
-                Append_n_I(arabianNumber, romanNumber);
-                arabianNumber = 0;
-            }
+                while (arabianNumber >= currentUnit)
+                {
+                    romanNumber.Append(RomanUnit.Member[currentUnit]);
+                    arabianNumber -= currentUnit;
+                }
+            } 
             return arabianNumber;
-        }
-
-        private void Append_n_I(int n, StringBuilder toBeAppended)
-        {
-            for (int it = 0; it < n; it++)
-            {
-                toBeAppended.Append("I");
-            }
         }
     }
 }
