@@ -44,6 +44,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(12, "XII");
                 yield return new TestCaseData(13, "XIII");
                 yield return new TestCaseData(14, "XIV");
+                yield return new TestCaseData(15, "XV");
             }
         }
     }
