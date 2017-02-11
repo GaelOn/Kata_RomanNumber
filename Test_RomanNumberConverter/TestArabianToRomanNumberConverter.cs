@@ -45,6 +45,19 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(13, "XIII");
                 yield return new TestCaseData(14, "XIV");
                 yield return new TestCaseData(15, "XV");
+                yield return new TestCaseData(16, "XVI");
+                yield return new TestCaseData(17, "XVII");
+                yield return new TestCaseData(18, "XVIII");
+                yield return new TestCaseData(19, "XIX");
+                yield return new TestCaseData(20, "XX");
+                yield return new TestCaseData(23, "XXIII");
+                yield return new TestCaseData(24, "XXIV");
+                yield return new TestCaseData(25, "XXV");
+                yield return new TestCaseData(29, "XXIX");
+                yield return new TestCaseData(30, "XXX");
+                yield return new TestCaseData(34, "XXXIV");
+                yield return new TestCaseData(35, "XXXV");
+                yield return new TestCaseData(39, "XXXIX");
             }
         }
     }
