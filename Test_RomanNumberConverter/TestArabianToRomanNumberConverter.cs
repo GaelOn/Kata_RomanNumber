@@ -92,6 +92,14 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(476, "CDLXXVI");
                 yield return new TestCaseData(494, "CDXCIV");
                 yield return new TestCaseData(500, "D");
+                yield return new TestCaseData(624, "DCXXIV");
+                yield return new TestCaseData(639, "DCXXXIX");
+                yield return new TestCaseData(643, "DCXLIII");
+                yield return new TestCaseData(671, "DCLXXI");
+                yield return new TestCaseData(747, "DCCXLVII");
+                yield return new TestCaseData(799, "DCCXCIX");
+                yield return new TestCaseData(869, "DCCCLXIX");
+                yield return new TestCaseData(874, "DCCCLXXIV");
             }
         }
     }
