@@ -21,23 +21,29 @@ namespace Kata_RomanNumber_TDD
             {
                 return SpecialCase[toBeConverted];
             }
-            if (toBeConverted >= 10)
+            var romanNumber = new StringBuilder();
+            AppendRomanUnit(romanNumber, toBeConverted);
+            return romanNumber.ToString();
+        }
+
+        private int AppendRomanUnit(StringBuilder romanNumber, int arabianNumber)
+        {
+            if (arabianNumber >= 10)
             {
-                var result_10 = (new StringBuilder()).Append("X");
-                toBeConverted = toBeConverted - 10;
-                Append_n_I(toBeConverted, result_10);
-                return result_10.ToString();
+                romanNumber.Append("X");
+                arabianNumber -= 10; 
             }
-            if (toBeConverted >= 5)
+            else if (arabianNumber >= 5)
             {
-                var result_5 = (new StringBuilder()).Append("V");
-                toBeConverted = toBeConverted - 5;
-                Append_n_I(toBeConverted, result_5);
-                return result_5.ToString();
+                romanNumber.Append("V");
+                arabianNumber -= 5;
             }
-            var result = new StringBuilder();
-            Append_n_I(toBeConverted, result);
-            return result.ToString();
+            if (arabianNumber < 4)
+            {
+                Append_n_I(arabianNumber, romanNumber);
+                arabianNumber = 0;
+            }
+            return arabianNumber;
         }
 
         private void Append_n_I(int n, StringBuilder toBeAppended)
