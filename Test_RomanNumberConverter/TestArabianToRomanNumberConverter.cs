@@ -65,6 +65,12 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(48, "XLVIII");
                 yield return new TestCaseData(49, "XLIX");
                 yield return new TestCaseData(50, "L");
+                yield return new TestCaseData(52, "LII");
+                yield return new TestCaseData(60, "LX");
+                yield return new TestCaseData(66, "LXVI");
+                yield return new TestCaseData(79, "LXXIX");
+                yield return new TestCaseData(84, "LXXXIV");
+                yield return new TestCaseData(85, "LXXXV");
             }
         }
     }
