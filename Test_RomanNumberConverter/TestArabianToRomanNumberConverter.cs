@@ -64,6 +64,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(45, "XLV");
                 yield return new TestCaseData(48, "XLVIII");
                 yield return new TestCaseData(49, "XLIX");
+                yield return new TestCaseData(50, "L");
             }
         }
     }
