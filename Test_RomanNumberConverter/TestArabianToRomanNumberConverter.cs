@@ -106,6 +106,23 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(976, "CMLXXVI");
                 yield return new TestCaseData(994, "CMXCIV");
                 yield return new TestCaseData(1000, "M");
+                yield return new TestCaseData(1003, "MIII");
+                yield return new TestCaseData(1048, "MXLVIII");
+                yield return new TestCaseData(3066, "MMMLXVI");
+                yield return new TestCaseData(3143, "MMMCXLIII");
+                yield return new TestCaseData(2299, "MMCCXCIX");
+                yield return new TestCaseData(5369, "MMMMMCCCLXIX");
+                yield return new TestCaseData(1374, "MCCCLXXIV");
+                yield return new TestCaseData(4400, "MMMMCD");
+                yield return new TestCaseData(8476, "MMMMMMMMCDLXXVI");
+                yield return new TestCaseData(3494, "MMMCDXCIV");
+                yield return new TestCaseData(1500, "MD");
+                yield return new TestCaseData(3624, "MMMDCXXIV");
+                yield return new TestCaseData(2639, "MMDCXXXIX");
+                yield return new TestCaseData(1643, "MDCXLIII");
+                yield return new TestCaseData(4671, "MMMMDCLXXI");
+                yield return new TestCaseData(1747, "MDCCXLVII");
+                yield return new TestCaseData(9994, "MMMMMMMMMCMXCIV");
             }
         }
     }
