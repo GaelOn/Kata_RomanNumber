@@ -43,22 +43,16 @@ namespace Kata_RomanNumber_TDD
         public string Convert(int toBeConverted)
         {
             var romanNumber = new StringBuilder();
-            AppendRomanUnit(romanNumber, toBeConverted);
-            return romanNumber.ToString();
-        }
-
-        private int AppendRomanUnit(StringBuilder romanNumber, int arabianNumber)
-        {
             var romanNumberUnitProvider = new RomanUnit();
             foreach (var currentUnit in romanNumberUnitProvider)
             {
-                while (arabianNumber >= currentUnit)
+                while (toBeConverted >= currentUnit)
                 {
                     romanNumber.Append(RomanUnit.Member[currentUnit]);
-                    arabianNumber -= currentUnit;
+                    toBeConverted -= currentUnit;
                 }
-            } 
-            return arabianNumber;
+            }
+            return romanNumber.ToString();
         }
     }
 }
