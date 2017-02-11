@@ -78,6 +78,14 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(98, "XCVIII");
                 yield return new TestCaseData(99, "XCIX");
                 yield return new TestCaseData(100, "C");
+                yield return new TestCaseData(124, "CXXIV");
+                yield return new TestCaseData(139, "CXXXIX");
+                yield return new TestCaseData(143, "CXLIII");
+                yield return new TestCaseData(171, "CLXXI");
+                yield return new TestCaseData(247, "CCXLVII");
+                yield return new TestCaseData(299, "CCXCIX");
+				yield return new TestCaseData(369, "CCCLXIX");
+                yield return new TestCaseData(374, "CCCLXXIV");
             }
         }
     }
