@@ -86,6 +86,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(299, "CCXCIX");
 				yield return new TestCaseData(369, "CCCLXIX");
                 yield return new TestCaseData(374, "CCCLXXIV");
+                yield return new TestCaseData(400, "CD");
             }
         }
     }
