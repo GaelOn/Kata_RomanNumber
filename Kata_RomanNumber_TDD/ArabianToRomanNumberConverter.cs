@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Kata_RomanNumber_TDD
 {
-    public class RomanUnit : IEnumerable<int>
+    public class RomanUnit : IEnumerable<int>, IEnumerable<string>
     {
-        public static Dictionary<int, string> Member;
+        private static Dictionary<int, string> Member;
 
         static RomanUnit()
         {
@@ -36,6 +37,21 @@ namespace Kata_RomanNumber_TDD
         {
             return GetEnumerator();
         }
+
+        public string TransformToUnit(int number)
+        {
+            return Member[number];
+        }
+
+        public int TransformBackFromUnit(string unit)
+        {
+            return Member.FirstOrDefault(kv => kv.Value == unit).Key;
+        }
+
+        IEnumerator<string> IEnumerable<string>.GetEnumerator()
+        {
+            return Member.Values.GetEnumerator();
+        }
     }
 
     public class ArabianToRomanNumberConverter
@@ -48,11 +64,29 @@ namespace Kata_RomanNumber_TDD
             {
                 while (toBeConverted >= currentUnit)
                 {
-                    romanNumber.Append(RomanUnit.Member[currentUnit]);
+                    romanNumber.Append(romanNumberUnitProvider.TransformToUnit(currentUnit));
                     toBeConverted -= currentUnit;
                 }
             }
             return romanNumber.ToString();
+        }
+    }
+
+    public class RomanToArabianNumberConverter
+    {
+        public int Convert(string toBeConverted)
+        {
+            int arabianNumber = 0;
+            var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
+            foreach (var currentUnit in romanNumberUnitProvider)
+            {
+                while (toBeConverted.StartsWith(currentUnit, StringComparison.Ordinal))
+                {
+                    arabianNumber += ((RomanUnit)romanNumberUnitProvider).TransformBackFromUnit(currentUnit);
+                    toBeConverted = toBeConverted.Substring(currentUnit.Length);
+                }
+            }
+            return arabianNumber;
         }
     }
 }
