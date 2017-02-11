@@ -12,6 +12,7 @@ namespace Kata_RomanNumber_TDD
         static RomanUnit()
         {
             Member = new Dictionary<int, string>();
+            Member.Add(400, "CD");
             Member.Add(100, "C");
             Member.Add(90, "XC");
             Member.Add(50, "L");
