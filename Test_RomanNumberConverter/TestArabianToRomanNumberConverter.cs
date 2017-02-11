@@ -100,6 +100,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(799, "DCCXCIX");
                 yield return new TestCaseData(869, "DCCCLXIX");
                 yield return new TestCaseData(874, "DCCCLXXIV");
+                yield return new TestCaseData(900, "CM");
             }
         }
     }
