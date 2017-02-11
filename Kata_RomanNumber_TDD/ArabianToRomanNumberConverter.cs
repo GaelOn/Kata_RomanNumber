@@ -31,12 +31,17 @@ namespace Kata_RomanNumber_TDD
             if (arabianNumber >= 10)
             {
                 romanNumber.Append("X");
-                arabianNumber -= 10; 
+                arabianNumber -= 10;
             }
             else if (arabianNumber >= 5)
             {
                 romanNumber.Append("V");
                 arabianNumber -= 5;
+            }
+            if (SpecialCase.ContainsKey(arabianNumber))
+            {
+                romanNumber.Append(SpecialCase[arabianNumber]);
+                arabianNumber = 0;
             }
             if (arabianNumber < 4)
             {
