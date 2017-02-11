@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="TestArabianToRomanNumberConverter.cs" />
     <Compile Include="GivenData.cs" />
+    <Compile Include="TestConversionRomanToArabian.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kata_RomanNumber_TDD\Kata_RomanNumber_TDD.csproj">
