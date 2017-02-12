@@ -13,6 +13,7 @@ namespace Test_RomanNumberConverter
             get
             {
                 yield return new TestCaseData("IIII", "The character I is repeated 4 times which is forbiden for RomanNumber.", "because I is repeated 4 times");
+                yield return new TestCaseData("XXXX", "The character X is repeated 4 times which is forbiden for RomanNumber.", "because X is repeated 4 times");
             }
         }
 
