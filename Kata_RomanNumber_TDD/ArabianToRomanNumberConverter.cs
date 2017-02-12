@@ -100,6 +100,12 @@ namespace Kata_RomanNumber_TDD
 
         private void Valid(string toBeValidated, IEnumerable<string> romanNumberUnitProvider)
         {
+            ValidEveryCharacter(toBeValidated);
+            ValidRepetition(toBeValidated, romanNumberUnitProvider);
+        }
+
+        private void ValidEveryCharacter(string toBeValidated)
+        {
             var validChar = RomanUnit.GetValidCharacter();
             foreach (var character in toBeValidated)
             {
@@ -108,6 +114,10 @@ namespace Kata_RomanNumber_TDD
                     throw new ValidationException($"The character {character} is not allowed in roman number.");
                 }
             }
+        }
+
+        private void ValidRepetition(string toBeValidated, IEnumerable<string> romanNumberUnitProvider)
+        {
             foreach (var item in romanNumberUnitProvider)
             {
                 if (item != "M")
