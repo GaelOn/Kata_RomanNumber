@@ -77,20 +77,16 @@ namespace Kata_RomanNumber_TDD
     {
         public int Convert(string toBeConverted)
         {
-            if (toBeConverted == "IIII")
+            var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
+            foreach (var item in romanNumberUnitProvider)
             {
-                throw new ValidationException("The character I is repeated 4 times which is forbiden for RomanNumber.");
-            }
-            else if (toBeConverted == "XXXX")
-            {
-                throw new ValidationException("The character X is repeated 4 times which is forbiden for RomanNumber.");
-            }
-            else if (toBeConverted == "CCCC")
-            {
-                throw new ValidationException("The character C is repeated 4 times which is forbiden for RomanNumber.");
+                var forbidCase = item + item + item + item;
+                if (toBeConverted == forbidCase)
+                {
+                    throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
+                }
             }
             int arabianNumber = 0;
-            var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
             foreach (var currentUnit in romanNumberUnitProvider)
             {
                 while (toBeConverted.StartsWith(currentUnit, StringComparison.Ordinal))
