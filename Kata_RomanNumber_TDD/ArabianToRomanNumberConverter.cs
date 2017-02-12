@@ -85,6 +85,10 @@ namespace Kata_RomanNumber_TDD
             {
                 throw new ValidationException("The character X is repeated 4 times which is forbiden for RomanNumber.");
             }
+            else if (toBeConverted == "CCCC")
+            {
+                throw new ValidationException("The character C is repeated 4 times which is forbiden for RomanNumber.");
+            }
             int arabianNumber = 0;
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
             foreach (var currentUnit in romanNumberUnitProvider)
