@@ -95,10 +95,13 @@ namespace Kata_RomanNumber_TDD
         {
             foreach (var item in romanNumberUnitProvider)
             {
-                var forbidCase = item + item + item + item;
-                if (toBeValidated.Contains(forbidCase))
+                if (item != "M")
                 {
-                    throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
+                    var forbidCase = item + item + item + item;
+                    if (toBeValidated.Contains(forbidCase))
+                    {
+                        throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
+                    }
                 }
             }
         }
