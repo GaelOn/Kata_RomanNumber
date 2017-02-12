@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using FluentAssertions;
 using Kata_RomanNumber_TDD;
+using System;
 
 namespace Test_RomanNumberConverter
 {
@@ -14,6 +15,13 @@ namespace Test_RomanNumberConverter
         public void Init()
         {
             _converter = new RomanToArabianNumberConverter();
+        }
+
+        [Test, TestCaseSource(typeof(GivenData), "BadRomanNumberCase")]
+        public void TestConversion(string notConvertible, string intendedErrorMess)
+        {
+            Action conversion = () => _converter.Convert(notConvertible);
+            conversion.ShouldThrow<ValidationException>().WithMessage(intendedErrorMess);
         }
 
         [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]

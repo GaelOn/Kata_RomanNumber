@@ -8,6 +8,14 @@ namespace Test_RomanNumberConverter
 
     public static class GivenData
     {
+        public static IEnumerable BadRomanNumberCase
+        {
+            get
+            {
+                yield return new TestCaseData("IIII", "because I is repeated 4 times");
+            }
+        }
+
         public static IEnumerable TestBasicCases
         {
             get
