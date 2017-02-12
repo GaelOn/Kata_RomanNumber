@@ -78,14 +78,7 @@ namespace Kata_RomanNumber_TDD
         public int Convert(string toBeConverted)
         {
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
-            foreach (var item in romanNumberUnitProvider)
-            {
-                var forbidCase = item + item + item + item;
-                if (toBeConverted == forbidCase)
-                {
-                    throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
-                }
-            }
+            Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
             foreach (var currentUnit in romanNumberUnitProvider)
             {
@@ -96,6 +89,18 @@ namespace Kata_RomanNumber_TDD
                 }
             }
             return arabianNumber;
+        }
+
+        private void Valid(string toBeValidated, IEnumerable<string> romanNumberUnitProvider)
+        {
+            foreach (var item in romanNumberUnitProvider)
+            {
+                var forbidCase = item + item + item + item;
+                if (toBeValidated == forbidCase)
+                {
+                    throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
+                }
+            }
         }
     }
 
