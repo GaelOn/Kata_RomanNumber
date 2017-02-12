@@ -25,7 +25,7 @@ namespace Test_RomanNumberConverter
         }
 
         [Test, TestCaseSource(typeof(GivenData), "RepetionThatShouldPass")]
-        public void TestValidation_WHen_M_Is_Used_Then_It_Can_Be_Repeated_As_Many_Time_As_Required(string notConvertible)
+        public void TestValidation_When_M_Is_Used_Then_It_Can_Be_Repeated_As_Many_Time_As_Required(string notConvertible)
         {
             Action conversion = () => _converter.Convert(notConvertible);
             conversion.ShouldNotThrow<ValidationException>("because M can be repeated as many time as required");
