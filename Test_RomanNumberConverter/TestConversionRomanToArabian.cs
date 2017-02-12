@@ -18,10 +18,17 @@ namespace Test_RomanNumberConverter
         }
 
         [Test, TestCaseSource(typeof(GivenData), "BadRomanNumberCase")]
-        public void TestValidation(string notConvertible, string intendedErrorMess, string because)
+        public void TestValidation_When_Try_Valid_Bad_Case_Then_Throw_ValidationException(string notConvertible, string intendedErrorMess, string because)
         {
             Action conversion = () => _converter.Convert(notConvertible);
             conversion.ShouldThrow<ValidationException>(because).WithMessage(intendedErrorMess);
+        }
+
+        [Test, TestCaseSource(typeof(GivenData), "RepetionThatShouldPass")]
+        public void TestValidation_WHen_M_Is_Used_Then_It_Can_Be_Repeated_As_Many_Time_As_Required(string notConvertible)
+        {
+            Action conversion = () => _converter.Convert(notConvertible);
+            conversion.ShouldNotThrow<ValidationException>("because M can be repeated as many time as required");
         }
 
         [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]
