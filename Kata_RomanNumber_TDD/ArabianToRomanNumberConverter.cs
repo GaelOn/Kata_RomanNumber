@@ -77,6 +77,10 @@ namespace Kata_RomanNumber_TDD
     {
         public int Convert(string toBeConverted)
         {
+            if (toBeConverted == "E")
+            {
+                throw new ValidationException("The character E is not allowed in roman number.");
+            }
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
             Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
