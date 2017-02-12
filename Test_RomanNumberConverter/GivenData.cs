@@ -19,6 +19,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("DDDD", "The character D is repeated 4 times which is forbiden for RomanNumber.", "because D is repeated 4 times");
                 yield return new TestCaseData("XIIII", "The character I is repeated 4 times which is forbiden for RomanNumber.", "because I is repeated 4 times");
                 yield return new TestCaseData("E", "The character E is not allowed in roman number.", "because E is not a valid character in roman number");
+                yield return new TestCaseData("A", "The character A is not allowed in roman number.", "because A is not a valid character in roman number");
             }
         }
 
