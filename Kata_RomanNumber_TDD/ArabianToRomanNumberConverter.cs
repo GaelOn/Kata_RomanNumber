@@ -29,6 +29,13 @@ namespace Kata_RomanNumber_TDD
             Member.Add(1, "I");
         }
 
+        public static List<string> GetValidCharacter()
+        {
+            return Member.Where(kv => kv.Value.Length == 1)
+                         .Select(kv => kv.Value)
+                         .ToList();
+        }
+
         public IEnumerator<int> GetEnumerator()
         {
             return Member.Keys.GetEnumerator();
@@ -77,18 +84,6 @@ namespace Kata_RomanNumber_TDD
     {
         public int Convert(string toBeConverted)
         {
-            if (toBeConverted == "E")
-            {
-                throw new ValidationException("The character E is not allowed in roman number.");
-            }
-            if (toBeConverted == "A")
-            {
-                throw new ValidationException("The character A is not allowed in roman number.");
-            }
-            if (toBeConverted == "O")
-            {
-                throw new ValidationException("The character O is not allowed in roman number.");
-            }
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
             Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
@@ -105,6 +100,14 @@ namespace Kata_RomanNumber_TDD
 
         private void Valid(string toBeValidated, IEnumerable<string> romanNumberUnitProvider)
         {
+            var validChar = RomanUnit.GetValidCharacter();
+            foreach (var character in toBeValidated)
+            {
+                if (!validChar.Contains(character.ToString()))
+                {
+                    throw new ValidationException($"The character {character} is not allowed in roman number.");
+                }
+            }
             foreach (var item in romanNumberUnitProvider)
             {
                 if (item != "M")
