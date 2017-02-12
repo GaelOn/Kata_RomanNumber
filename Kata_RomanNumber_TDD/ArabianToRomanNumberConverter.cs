@@ -85,6 +85,10 @@ namespace Kata_RomanNumber_TDD
             {
                 throw new ValidationException("The character A is not allowed in roman number.");
             }
+            if (toBeConverted == "O")
+            {
+                throw new ValidationException("The character O is not allowed in roman number.");
+            }
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
             Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
