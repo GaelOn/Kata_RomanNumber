@@ -96,7 +96,7 @@ namespace Kata_RomanNumber_TDD
             foreach (var item in romanNumberUnitProvider)
             {
                 var forbidCase = item + item + item + item;
-                if (toBeValidated == forbidCase)
+                if (toBeValidated.Contains(forbidCase))
                 {
                     throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
                 }
