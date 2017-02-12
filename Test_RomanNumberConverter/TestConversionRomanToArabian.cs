@@ -18,10 +18,10 @@ namespace Test_RomanNumberConverter
         }
 
         [Test, TestCaseSource(typeof(GivenData), "BadRomanNumberCase")]
-        public void TestConversion(string notConvertible, string intendedErrorMess)
+        public void TestValidation(string notConvertible, string intendedErrorMess, string because)
         {
             Action conversion = () => _converter.Convert(notConvertible);
-            conversion.ShouldThrow<ValidationException>().WithMessage(intendedErrorMess);
+            conversion.ShouldThrow<ValidationException>(because).WithMessage(intendedErrorMess);
         }
 
         [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]
