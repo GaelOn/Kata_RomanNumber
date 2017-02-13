@@ -39,6 +39,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("LD", "The combinaison LD is not an allowed one for roman number.", "because LD is not an allowed combinaison for roman number");
                 yield return new TestCaseData("LM", "The combinaison LM is not an allowed one for roman number.", "because LM is not an allowed combinaison for roman number");
                 yield return new TestCaseData("DM", "The combinaison DM is not an allowed one for roman number.", "because DM is not an allowed combinaison for roman number");
+                yield return new TestCaseData("XDVII", "The combinaison XD is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
             }
         }
 
