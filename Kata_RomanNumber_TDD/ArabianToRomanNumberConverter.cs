@@ -145,12 +145,16 @@ namespace Kata_RomanNumber_TDD
         private void ValidOnlyValidCombinaisonAreUsed(string toBeValidated)
         {
             var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
-            if (!validCombinaison.Contains(toBeValidated) && 
-                toBeValidated.Length == 2 &&
-                RomanUnit.TransformBackFromUnit(toBeValidated[0].ToString()) < RomanUnit.TransformBackFromUnit(toBeValidated[1].ToString())
-               )
+            for (int i = 0; i < toBeValidated.Length-1; i++)
             {
-                throw new ValidationException($"The combinaison {toBeValidated} is not an allowed one for roman number.");
+                var firstChar  = toBeValidated[i].ToString();
+                var secondChar = toBeValidated[i+1].ToString();
+                var twoFollowingChar = firstChar + secondChar;
+                if (!validCombinaison.Contains(twoFollowingChar) &&
+                    RomanUnit.TransformBackFromUnit(firstChar) < RomanUnit.TransformBackFromUnit(secondChar))
+                {
+                    throw new ValidationException($"The combinaison {twoFollowingChar} is not an allowed one for roman number.");
+                }
             }
         }
     }
