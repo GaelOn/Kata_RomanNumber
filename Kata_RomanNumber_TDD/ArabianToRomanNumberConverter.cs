@@ -118,6 +118,10 @@ namespace Kata_RomanNumber_TDD
             {
                 throw new ValidationException("The combinaison XL can not be followed by X for roman number.");
             }
+            if (toBeValidated == "CDC")
+            {
+                throw new ValidationException("The combinaison CD can not be followed by C for roman number.");
+            }
             var validChar = RomanUnit.GetValidCharacterWithLengthOne();
             var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
             // init the one pass validation algo
