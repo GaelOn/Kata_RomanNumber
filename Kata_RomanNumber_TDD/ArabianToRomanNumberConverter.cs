@@ -85,6 +85,10 @@ namespace Kata_RomanNumber_TDD
         public int Convert(string toBeConverted)
         {
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
+            if (toBeConverted == "IL")
+            {
+                throw new ValidationException("The combinaison IL is not an allowed one for roman number.");
+            }
             Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
             foreach (var currentUnit in romanNumberUnitProvider)
