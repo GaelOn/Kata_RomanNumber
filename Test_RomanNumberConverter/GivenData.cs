@@ -27,6 +27,18 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("IL", "The combinaison IL is not an allowed one for roman number.", "because IL is not an allowed combinaison for roman number");
                 yield return new TestCaseData("IC", "The combinaison IC is not an allowed one for roman number.", "because IC is not an allowed combinaison for roman number");
                 yield return new TestCaseData("ID", "The combinaison ID is not an allowed one for roman number.", "because ID is not an allowed combinaison for roman number");
+                yield return new TestCaseData("IM", "The combinaison IM is not an allowed one for roman number.", "because IM is not an allowed combinaison for roman number");
+                yield return new TestCaseData("VX", "The combinaison VX is not an allowed one for roman number.", "because VX is not an allowed combinaison for roman number");
+                yield return new TestCaseData("VL", "The combinaison VL is not an allowed one for roman number.", "because VL is not an allowed combinaison for roman number");
+                yield return new TestCaseData("VC", "The combinaison VC is not an allowed one for roman number.", "because VC is not an allowed combinaison for roman number");
+                yield return new TestCaseData("VD", "The combinaison VD is not an allowed one for roman number.", "because VD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("VM", "The combinaison VM is not an allowed one for roman number.", "because VM is not an allowed combinaison for roman number");
+                yield return new TestCaseData("XD", "The combinaison XD is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("XM", "The combinaison XM is not an allowed one for roman number.", "because XM is not an allowed combinaison for roman number");
+                yield return new TestCaseData("LC", "The combinaison LC is not an allowed one for roman number.", "because LC is not an allowed combinaison for roman number");
+                yield return new TestCaseData("LD", "The combinaison LD is not an allowed one for roman number.", "because LD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("LM", "The combinaison LM is not an allowed one for roman number.", "because LM is not an allowed combinaison for roman number");
+                yield return new TestCaseData("DM", "The combinaison DM is not an allowed one for roman number.", "because DM is not an allowed combinaison for roman number");
             }
         }
 
