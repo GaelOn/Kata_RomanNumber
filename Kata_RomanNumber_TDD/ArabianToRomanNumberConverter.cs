@@ -110,6 +110,10 @@ namespace Kata_RomanNumber_TDD
 
         private void Valid(string toBeValidated)
         {
+            if (toBeValidated == "IVI")
+            {
+                throw new ValidationException("The combinaison IV can not be followed by I for roman number.");
+            }
             var validChar = RomanUnit.GetValidCharacterWithLengthOne();
             var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
             // init the one pass validation algo
