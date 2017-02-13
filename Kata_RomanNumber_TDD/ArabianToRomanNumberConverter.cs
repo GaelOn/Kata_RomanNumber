@@ -85,18 +85,6 @@ namespace Kata_RomanNumber_TDD
         public int Convert(string toBeConverted)
         {
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
-            if (toBeConverted == "IL")
-            {
-                throw new ValidationException("The combinaison IL is not an allowed one for roman number.");
-            }
-            if (toBeConverted == "IC")
-            {
-                throw new ValidationException("The combinaison IC is not an allowed one for roman number.");
-            }
-            if (toBeConverted == "ID")
-            {
-                throw new ValidationException("The combinaison ID is not an allowed one for roman number.");
-            }
             Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
             foreach (var currentUnit in romanNumberUnitProvider)
@@ -114,6 +102,7 @@ namespace Kata_RomanNumber_TDD
         {
             ValidEveryCharacter(toBeValidated);
             ValidRepetition(toBeValidated, romanNumberUnitProvider);
+            ValidNoForbidenCombinaison(toBeValidated);
         }
 
         private void ValidEveryCharacter(string toBeValidated)
@@ -140,6 +129,22 @@ namespace Kata_RomanNumber_TDD
                         throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
                     }
                 }
+            }
+        }
+
+        static void ValidNoForbidenCombinaison(string toBeConverted)
+        {
+            if (toBeConverted == "IL")
+            {
+                throw new ValidationException("The combinaison IL is not an allowed one for roman number.");
+            }
+            if (toBeConverted == "IC")
+            {
+                throw new ValidationException("The combinaison IC is not an allowed one for roman number.");
+            }
+            if (toBeConverted == "ID")
+            {
+                throw new ValidationException("The combinaison ID is not an allowed one for roman number.");
             }
         }
     }
