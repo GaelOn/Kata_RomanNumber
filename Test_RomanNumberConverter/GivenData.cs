@@ -26,6 +26,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("BADCASE", "The character B is not allowed in roman number.", "because B is not a valid character in roman number");
                 yield return new TestCaseData("IL", "The combinaison IL is not an allowed one for roman number.", "because IL is not an allowed combinaison for roman number");
                 yield return new TestCaseData("IC", "The combinaison IC is not an allowed one for roman number.", "because IC is not an allowed combinaison for roman number");
+                yield return new TestCaseData("ID", "The combinaison ID is not an allowed one for roman number.", "because ID is not an allowed combinaison for roman number");
             }
         }
 
