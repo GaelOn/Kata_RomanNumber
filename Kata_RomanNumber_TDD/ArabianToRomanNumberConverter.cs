@@ -95,7 +95,7 @@ namespace Kata_RomanNumber_TDD
         public int Convert(string toBeConverted)
         {
             var romanNumberUnitProvider = (new RomanUnit()) as IEnumerable<string>;
-            Valid(toBeConverted, romanNumberUnitProvider);
+            Valid(toBeConverted);
             int arabianNumber = 0;
             foreach (var currentUnit in romanNumberUnitProvider)
             {
@@ -108,53 +108,49 @@ namespace Kata_RomanNumber_TDD
             return arabianNumber;
         }
 
-        private void Valid(string toBeValidated, IEnumerable<string> romanNumberUnitProvider)
-        {
-            ValidEveryCharacter(toBeValidated);
-            ValidRepetition(toBeValidated, romanNumberUnitProvider);
-            ValidOnlyValidCombinaisonAreUsed(toBeValidated);
-        }
-
-        private void ValidEveryCharacter(string toBeValidated)
+        private void Valid(string toBeValidated)
         {
             var validChar = RomanUnit.GetValidCharacterWithLengthOne();
-            foreach (var character in toBeValidated)
-            {
-                if (!validChar.Contains(character.ToString()))
-                {
-                    throw new ValidationException($"The character {character} is not allowed in roman number.");
-                }
-            }
-        }
-
-        private void ValidRepetition(string toBeValidated, IEnumerable<string> romanNumberUnitProvider)
-        {
-            foreach (var item in romanNumberUnitProvider)
-            {
-                if (item != "M")
-                {
-                    var forbidCase = item + item + item + item;
-                    if (toBeValidated.Contains(forbidCase))
-                    {
-                        throw new ValidationException($"The character {item} is repeated 4 times which is forbiden for RomanNumber.");
-                    }
-                }
-            }
-        }
-
-        private void ValidOnlyValidCombinaisonAreUsed(string toBeValidated)
-        {
             var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
-            for (int i = 0; i < toBeValidated.Length-1; i++)
+            // init the one pass validation algo
+            string previousChar = toBeValidated[0].ToString();
+            int repetition = 1;
+            IsValidCharacter(validChar, previousChar);
+            for (int i = 1; i < toBeValidated.Length; i++)
             {
-                var firstChar  = toBeValidated[i].ToString();
-                var secondChar = toBeValidated[i+1].ToString();
-                var twoFollowingChar = firstChar + secondChar;
-                if (!validCombinaison.Contains(twoFollowingChar) &&
-                    RomanUnit.TransformBackFromUnit(firstChar) < RomanUnit.TransformBackFromUnit(secondChar))
-                {
-                    throw new ValidationException($"The combinaison {twoFollowingChar} is not an allowed one for roman number.");
-                }
+                var curChar = toBeValidated[i].ToString();
+                IsValidCharacter(validChar, curChar);
+                ValidRepetition(curChar, previousChar, ref repetition);
+                ValidAllCombinaisonAreAllowedOne(validCombinaison, curChar, previousChar);
+                previousChar = curChar;
+            }
+        }
+
+        private void IsValidCharacter(List<String> validChar, string charac)
+        {
+            if (!validChar.Contains(charac))
+            {
+                throw new ValidationException($"The character {charac} is not allowed in roman number.");
+            }
+        }
+
+        private void ValidRepetition(string curChar, string previousChar, ref int repetition)
+        {
+            repetition = (previousChar != "M" && curChar == previousChar) ? 
+                         repetition + 1 : 1;
+            if (repetition > 3)
+            {
+                throw new ValidationException($"The character {curChar} is repeated {repetition} times which is forbiden for RomanNumber.");
+            }
+        }
+
+        private void ValidAllCombinaisonAreAllowedOne(List<string> validCombinaison, string curChar, string previousChar)
+        {
+            var twoFollowingChar = previousChar + curChar;
+            if (!validCombinaison.Contains(twoFollowingChar) &&
+                RomanUnit.TransformBackFromUnit(previousChar) < RomanUnit.TransformBackFromUnit(curChar))
+            {
+                throw new ValidationException($"The combinaison {twoFollowingChar} is not an allowed one for roman number.");
             }
         }
     }
