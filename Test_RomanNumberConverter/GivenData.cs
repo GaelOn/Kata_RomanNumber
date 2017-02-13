@@ -40,6 +40,12 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("LM", "The combinaison LM is not an allowed one for roman number.", "because LM is not an allowed combinaison for roman number");
                 yield return new TestCaseData("DM", "The combinaison DM is not an allowed one for roman number.", "because DM is not an allowed combinaison for roman number");
                 yield return new TestCaseData("XDVII", "The combinaison XD is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("MMMMMXDVII", "The combinaison XD is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("MMMMDVLII", "The combinaison VL is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("DMVLII", "The combinaison DM is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("LVX", "The combinaison VX is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("DIC", "The combinaison IC is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
+                yield return new TestCaseData("DVC", "The combinaison VC is not an allowed one for roman number.", "because XD is not an allowed combinaison for roman number");
             }
         }
 
