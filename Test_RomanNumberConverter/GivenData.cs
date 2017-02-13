@@ -1,7 +1,5 @@
 using NUnit.Framework;
-using FluentAssertions;
 using System.Collections;
-using Kata_RomanNumber_TDD;
 
 namespace Test_RomanNumberConverter
 {
@@ -18,9 +16,14 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("CCCC", "The character C is repeated 4 times which is forbiden for RomanNumber.", "because C is repeated 4 times");
                 yield return new TestCaseData("DDDD", "The character D is repeated 4 times which is forbiden for RomanNumber.", "because D is repeated 4 times");
                 yield return new TestCaseData("XIIII", "The character I is repeated 4 times which is forbiden for RomanNumber.", "because I is repeated 4 times");
-				yield return new TestCaseData("A", "The character A is not allowed in roman number.", "because A is not a valid character in roman number");
+                yield return new TestCaseData("A", "The character A is not allowed in roman number.", "because A is not a valid character in roman number");
                 yield return new TestCaseData("E", "The character E is not allowed in roman number.", "because E is not a valid character in roman number");
                 yield return new TestCaseData("O", "The character O is not allowed in roman number.", "because O is not a valid character in roman number");
+                yield return new TestCaseData("CAX", "The character A is not allowed in roman number.", "because A is not a valid character in roman number");
+                yield return new TestCaseData("MAD", "The character A is not allowed in roman number.", "because A is not a valid character in roman number");
+                yield return new TestCaseData("LEX", "The character E is not allowed in roman number.", "because E is not a valid character in roman number");
+                yield return new TestCaseData("ZIX", "The character Z is not allowed in roman number.", "because Z is not a valid character in roman number");
+                yield return new TestCaseData("BADCASE", "The character B is not allowed in roman number.", "because B is not a valid character in roman number");
             }
         }
 
@@ -90,7 +93,7 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData(171, "CLXXI");
                 yield return new TestCaseData(247, "CCXLVII");
                 yield return new TestCaseData(299, "CCXCIX");
-				yield return new TestCaseData(369, "CCCLXIX");
+                yield return new TestCaseData(369, "CCCLXIX");
                 yield return new TestCaseData(374, "CCCLXXIV");
                 yield return new TestCaseData(400, "CD");
                 yield return new TestCaseData(424, "CDXXIV");
