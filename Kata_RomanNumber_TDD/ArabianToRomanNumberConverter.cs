@@ -89,6 +89,10 @@ namespace Kata_RomanNumber_TDD
             {
                 throw new ValidationException("The combinaison IL is not an allowed one for roman number.");
             }
+            if (toBeConverted == "IC")
+            {
+                throw new ValidationException("The combinaison IC is not an allowed one for roman number.");
+            }
             Valid(toBeConverted, romanNumberUnitProvider);
             int arabianNumber = 0;
             foreach (var currentUnit in romanNumberUnitProvider)
