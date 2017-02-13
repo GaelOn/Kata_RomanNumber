@@ -29,9 +29,19 @@ namespace Kata_RomanNumber_TDD
             Member.Add(1, "I");
         }
 
-        public static List<string> GetValidCharacter()
+        public static List<string> GetValidCharacterWithLengthOne()
         {
-            return Member.Where(kv => kv.Value.Length == 1)
+            return GetCharactereByLength(1);
+        }
+
+        public static List<string> GetValidCharacterWithLengthTwo()
+        {
+            return GetCharactereByLength(2);
+        }
+
+        private static List<string> GetCharactereByLength(int length)
+        {
+            return Member.Where(kv => kv.Value.Length == length)
                          .Select(kv => kv.Value)
                          .ToList();
         }
@@ -46,12 +56,12 @@ namespace Kata_RomanNumber_TDD
             return GetEnumerator();
         }
 
-        public string TransformToUnit(int number)
+        public static string TransformToUnit(int number)
         {
             return Member[number];
         }
 
-        public int TransformBackFromUnit(string unit)
+        public static int TransformBackFromUnit(string unit)
         {
             return Member.FirstOrDefault(kv => kv.Value == unit).Key;
         }
@@ -72,7 +82,7 @@ namespace Kata_RomanNumber_TDD
             {
                 while (toBeConverted >= currentUnit)
                 {
-                    romanNumber.Append(romanNumberUnitProvider.TransformToUnit(currentUnit));
+                    romanNumber.Append(RomanUnit.TransformToUnit(currentUnit));
                     toBeConverted -= currentUnit;
                 }
             }
@@ -91,7 +101,7 @@ namespace Kata_RomanNumber_TDD
             {
                 while (toBeConverted.StartsWith(currentUnit, StringComparison.Ordinal))
                 {
-                    arabianNumber += ((RomanUnit)romanNumberUnitProvider).TransformBackFromUnit(currentUnit);
+                    arabianNumber += RomanUnit.TransformBackFromUnit(currentUnit);
                     toBeConverted = toBeConverted.Substring(currentUnit.Length);
                 }
             }
@@ -102,12 +112,12 @@ namespace Kata_RomanNumber_TDD
         {
             ValidEveryCharacter(toBeValidated);
             ValidRepetition(toBeValidated, romanNumberUnitProvider);
-            ValidNoForbidenCombinaison(toBeValidated);
+            ValidOnlyValidCombinaisonAreUsed(toBeValidated);
         }
 
         private void ValidEveryCharacter(string toBeValidated)
         {
-            var validChar = RomanUnit.GetValidCharacter();
+            var validChar = RomanUnit.GetValidCharacterWithLengthOne();
             foreach (var character in toBeValidated)
             {
                 if (!validChar.Contains(character.ToString()))
@@ -132,19 +142,15 @@ namespace Kata_RomanNumber_TDD
             }
         }
 
-        static void ValidNoForbidenCombinaison(string toBeConverted)
+        private void ValidOnlyValidCombinaisonAreUsed(string toBeValidated)
         {
-            if (toBeConverted == "IL")
+            var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
+            if (!validCombinaison.Contains(toBeValidated) && 
+                toBeValidated.Length == 2 &&
+                RomanUnit.TransformBackFromUnit(toBeValidated[0].ToString()) < RomanUnit.TransformBackFromUnit(toBeValidated[1].ToString())
+               )
             {
-                throw new ValidationException("The combinaison IL is not an allowed one for roman number.");
-            }
-            if (toBeConverted == "IC")
-            {
-                throw new ValidationException("The combinaison IC is not an allowed one for roman number.");
-            }
-            if (toBeConverted == "ID")
-            {
-                throw new ValidationException("The combinaison ID is not an allowed one for roman number.");
+                throw new ValidationException($"The combinaison {toBeValidated} is not an allowed one for roman number.");
             }
         }
     }
