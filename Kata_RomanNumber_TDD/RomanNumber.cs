@@ -32,6 +32,11 @@ namespace Kata_RomanNumber_TDD
             return Value.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return Value;
+        }
+
         // use builder to avoid validating un roman number constructor, 
         // because validation throw error
         public static class RomanNumberBuilder

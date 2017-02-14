@@ -9,12 +9,14 @@ namespace Test_RomanNumberConverter
     [TestFixture]
     public class TestConversionRomanToArabian
     {
-        RomanToArabianNumberConverter _converter;
+        Converter _generalConverter;
+        RomanToArabianNumberConverter _specializeConverter;
 
         [SetUp]
         public void Init()
         {
-            _converter = new RomanToArabianNumberConverter();
+            _generalConverter = new Converter();
+            _specializeConverter = new RomanToArabianNumberConverter(_generalConverter);
         }
 
         [Test, TestCaseSource(typeof(GivenData), "BadRomanNumberCase")]
@@ -32,9 +34,17 @@ namespace Test_RomanNumberConverter
         }
 
         [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]
+        public void TestDecoding(int intendedValue, string toBeConverted)
+        {
+            var convertionResult = _generalConverter.Convert(new RomanToArabianNumberDecoder(toBeConverted));
+            convertionResult.ShouldBeEquivalentTo(intendedValue, $"because when i try to convert {toBeConverted} then i should get {intendedValue} as a result not {convertionResult}.");
+        }
+
+        [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]
         public void TestConversion(int intendedValue, string toBeConverted)
         {
-            var convertionResult = _converter.Convert(toBeConverted);
+            var romanNumber = RomanNumber.RomanNumberBuilder.BuildRomanNumber(toBeConverted);
+            var convertionResult = _specializeConverter.Convert(romanNumber);
             convertionResult.ShouldBeEquivalentTo(intendedValue, $"because when i try to convert {toBeConverted} then i should get {intendedValue} as a result not {convertionResult}.");
         }
     }
