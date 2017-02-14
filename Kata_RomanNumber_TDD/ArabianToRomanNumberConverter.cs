@@ -9,24 +9,32 @@ namespace Kata_RomanNumber_TDD
 {
     public class RomanUnit : IEnumerable<int>, IEnumerable<string>
     {
-        private static Dictionary<int, string> Member;
+        private static Dictionary<int, string> MapIntergerValueToRomanValue;
+        private static List<Tuple<string, string>> ForbidenCharacterFollowingCombinaison;
 
         static RomanUnit()
         {
-            Member = new Dictionary<int, string>();
-            Member.Add(1000, "M");
-            Member.Add(900, "CM");
-            Member.Add(500, "D");
-            Member.Add(400, "CD");
-            Member.Add(100, "C");
-            Member.Add(90, "XC");
-            Member.Add(50, "L");
-            Member.Add(40, "XL");
-            Member.Add(10, "X");
-            Member.Add(9, "IX");
-            Member.Add(5, "V");
-            Member.Add(4, "IV");
-            Member.Add(1, "I");
+            MapIntergerValueToRomanValue = new Dictionary<int, string>();
+            MapIntergerValueToRomanValue.Add(1000, "M");
+            MapIntergerValueToRomanValue.Add(900, "CM");
+            MapIntergerValueToRomanValue.Add(500, "D");
+            MapIntergerValueToRomanValue.Add(400, "CD");
+            MapIntergerValueToRomanValue.Add(100, "C");
+            MapIntergerValueToRomanValue.Add(90, "XC");
+            MapIntergerValueToRomanValue.Add(50, "L");
+            MapIntergerValueToRomanValue.Add(40, "XL");
+            MapIntergerValueToRomanValue.Add(10, "X");
+            MapIntergerValueToRomanValue.Add(9, "IX");
+            MapIntergerValueToRomanValue.Add(5, "V");
+            MapIntergerValueToRomanValue.Add(4, "IV");
+            MapIntergerValueToRomanValue.Add(1, "I");
+            ForbidenCharacterFollowingCombinaison = new List<Tuple<string, string>>();
+            ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("IV", "I"));
+            ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("IX", "I"));
+            ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("XL", "X"));
+            ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("XC", "X"));
+            ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("CD", "C"));
+            ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("CM", "M"));
         }
 
         public static List<string> GetValidCharacterWithLengthOne()
@@ -41,14 +49,19 @@ namespace Kata_RomanNumber_TDD
 
         private static List<string> GetCharactereByLength(int length)
         {
-            return Member.Where(kv => kv.Value.Length == length)
+            return MapIntergerValueToRomanValue.Where(kv => kv.Value.Length == length)
                          .Select(kv => kv.Value)
                          .ToList();
         }
 
+        public static List<Tuple<string, string>> GetForbidenCharacterFollowingCombinaison()
+        {
+            return ForbidenCharacterFollowingCombinaison;
+        }
+
         public IEnumerator<int> GetEnumerator()
         {
-            return Member.Keys.GetEnumerator();
+            return MapIntergerValueToRomanValue.Keys.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -58,17 +71,17 @@ namespace Kata_RomanNumber_TDD
 
         public static string TransformToUnit(int number)
         {
-            return Member[number];
+            return MapIntergerValueToRomanValue[number];
         }
 
         public static int TransformBackFromUnit(string unit)
         {
-            return Member.FirstOrDefault(kv => kv.Value == unit).Key;
+            return MapIntergerValueToRomanValue.FirstOrDefault(kv => kv.Value == unit).Key;
         }
 
         IEnumerator<string> IEnumerable<string>.GetEnumerator()
         {
-            return Member.Values.GetEnumerator();
+            return MapIntergerValueToRomanValue.Values.GetEnumerator();
         }
     }
 
@@ -110,20 +123,9 @@ namespace Kata_RomanNumber_TDD
 
         private void Valid(string toBeValidated)
         {
-            if (toBeValidated == "IVI")
-            {
-                throw new ValidationException("The combinaison IV can not be followed by I for roman number.");
-            }
-            if (toBeValidated == "XLX")
-            {
-                throw new ValidationException("The combinaison XL can not be followed by X for roman number.");
-            }
-            if (toBeValidated == "CDC")
-            {
-                throw new ValidationException("The combinaison CD can not be followed by C for roman number.");
-            }
             var validChar = RomanUnit.GetValidCharacterWithLengthOne();
             var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
+            var forbidenCharacterFollowingCombinaison = RomanUnit.GetForbidenCharacterFollowingCombinaison();
             // init the one pass validation algo
             string previousChar = toBeValidated[0].ToString();
             int repetition = 1;
@@ -133,12 +135,22 @@ namespace Kata_RomanNumber_TDD
                 var curChar = toBeValidated[i].ToString();
                 IsValidCharacter(validChar, curChar);
                 ValidRepetition(curChar, previousChar, ref repetition);
+                ValidCharacterFollowingCombinaison(forbidenCharacterFollowingCombinaison, previousChar, curChar);
                 ValidAllCombinaisonAreAllowedOne(validCombinaison, curChar, previousChar);
-                previousChar = curChar;
+                previousChar = GetPreviousChar(previousChar, curChar);
             }
         }
 
-        private void IsValidCharacter(List<String> validChar, string charac)
+        private string GetPreviousChar(string oldPreviousChar, string curChar)
+        {
+            if (RomanUnit.TransformBackFromUnit(oldPreviousChar) < RomanUnit.TransformBackFromUnit(curChar))
+            {
+                return oldPreviousChar + curChar;
+            }
+            return curChar;
+        }
+
+        private void IsValidCharacter(List<string> validChar, string charac)
         {
             if (!validChar.Contains(charac))
             {
@@ -153,6 +165,14 @@ namespace Kata_RomanNumber_TDD
             if (repetition > 3)
             {
                 throw new ValidationException($"The character {curChar} is repeated {repetition} times which is forbiden for RomanNumber.");
+            }
+        }
+
+        private void ValidCharacterFollowingCombinaison(List<Tuple<string, string>> forbidenValueFollowingCombinaison, string previous, string cur)
+        {
+            if (forbidenValueFollowingCombinaison.Any(tuple => tuple.Item1 == previous && tuple.Item2 == cur))
+            {
+                throw new ValidationException($"The combinaison {previous} can not be followed by {cur} for roman number.");
             }
         }
 
