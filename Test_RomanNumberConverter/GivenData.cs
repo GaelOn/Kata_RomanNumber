@@ -49,6 +49,11 @@ namespace Test_RomanNumberConverter
                 yield return new TestCaseData("IVI", "The combinaison IV can not be followed by I for roman number.", "because IVI is not an allowed combinaison for roman number");
                 yield return new TestCaseData("XLX", "The combinaison XL can not be followed by X for roman number.", "because XLX is not an allowed combinaison for roman number");
                 yield return new TestCaseData("CDC", "The combinaison CD can not be followed by C for roman number.", "because CDC is not an allowed combinaison for roman number");
+                yield return new TestCaseData("MCDCLXII", "The combinaison CD can not be followed by C for roman number.", "because CDC is not an allowed combinaison for roman number");
+                yield return new TestCaseData("MCDXLXII", "The combinaison XL can not be followed by X for roman number.", "because XLX is not an allowed combinaison for roman number");
+                yield return new TestCaseData("CCLIVI", "The combinaison IV can not be followed by I for roman number.", "because IVI is not an allowed combinaison for roman number");
+                yield return new TestCaseData("CCLIXI", "The combinaison IX can not be followed by I for roman number.", "because IXI is not an allowed combinaison for roman number");
+                yield return new TestCaseData("CCXLXI", "The combinaison XL can not be followed by X for roman number.", "because XLX is not an allowed combinaison for roman number");
             }
         }
 
