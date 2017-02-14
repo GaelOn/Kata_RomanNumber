@@ -37,6 +37,16 @@ namespace Kata_RomanNumber_TDD
             ForbidenCharacterFollowingCombinaison.Add(new Tuple<string, string>("CM", "M"));
         }
 
+        public static IEnumerable<int> GetUnitAsInteger()
+        {
+            return MapIntergerValueToRomanValue.Keys;
+        }
+
+        public static IEnumerable<string> GetUnitAsString()
+        {
+            return MapIntergerValueToRomanValue.Values;
+        }
+
         public static List<string> GetValidCharacterWithLengthOne()
         {
             return GetCharactereByLength(1);
@@ -84,6 +94,4 @@ namespace Kata_RomanNumber_TDD
             return MapIntergerValueToRomanValue.Values.GetEnumerator();
         }
     }
-
-    
 }

@@ -35,6 +35,9 @@
     <Compile Include="ValidationException.cs" />
     <Compile Include="RomanUnit.cs" />
     <Compile Include="RomanNumber.cs" />
+    <Compile Include="IDecodingReferential.cs" />
+    <Compile Include="ArabianToRomanNumberDecodingData.cs" />
+    <Compile Include="RomanToArabianNumberDecodingData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
