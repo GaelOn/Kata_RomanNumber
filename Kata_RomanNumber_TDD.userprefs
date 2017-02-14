@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}|Tests unitaires">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD État">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD/RomanNumber.cs">
     <Files>
-      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="91" Column="6" />
-      <File FileName="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" Line="24" Column="55" />
+      <File FileName="Kata_RomanNumber_TDD/RomanUnit.cs" Line="88" Column="5" />
+      <File FileName="Kata_RomanNumber_TDD/RomanNumber.cs" Line="6" Column="49" />
+      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="108" Column="6" />
+      <File FileName="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" Line="28" Column="38" />
       <File FileName="Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" Line="1" Column="1" />
-      <File FileName="Test_RomanNumberConverter/GivenData.cs" Line="11" Column="53" />
       <File FileName="Kata_RomanNumber_TDD État" />
     </Files>
     <Pads>
