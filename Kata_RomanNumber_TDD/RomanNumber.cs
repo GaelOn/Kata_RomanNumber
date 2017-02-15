@@ -54,7 +54,7 @@ namespace Kata_RomanNumber_TDD
                 var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
                 var forbidenCharacterFollowingCombinaison = RomanUnit.GetForbidenCharacterFollowingCombinaison();
                 // init the one pass validation algo
-                string previousChar = toBeValidated[0].ToString();
+                var previousChar = toBeValidated[0].ToString();
                 int repetition = 1;
                 IsValidCharacter(validChar, previousChar);
                 for (int i = 1; i < toBeValidated.Length; i++)

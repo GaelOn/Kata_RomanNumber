@@ -45,6 +45,7 @@
     <Compile Include="IConverter.cs" />
     <Compile Include="ArabianToRomanNumberConverter.cs" />
     <Compile Include="RomanToArabianNumberConverter.cs" />
+    <Compile Include="IFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

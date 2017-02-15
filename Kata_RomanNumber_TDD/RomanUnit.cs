@@ -7,7 +7,7 @@ namespace Kata_RomanNumber_TDD
 {
     public class RomanUnit : IEnumerable<int>, IEnumerable<string>
     {
-        private static Dictionary<int, string> MapIntergerValueToRomanValue;
+        private static readonly Dictionary<int, string> MapIntergerValueToRomanValue;
         private static List<Tuple<string, string>> ForbidenCharacterFollowingCombinaison;
 
         static RomanUnit()
