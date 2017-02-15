@@ -1,8 +1,23 @@
+using System;
+
 namespace Kata_RomanNumber_TDD
 {
     public class ArabianToRomanNumberDecoder : BaseDecoder<int, string>
     {
-        public ArabianToRomanNumberDecoder(int decodableRest) : base(decodableRest, new ArabianToRomanNumberDecodingData())
+        public ArabianToRomanNumberDecoder(int decodableRest) 
+            : base(new ArabianToRomanNumberDecodingData(), decodableRest) 
+        {
+            _returnValue = string.Empty;
+        }
+
+        public ArabianToRomanNumberDecoder(IFactory<IDecodingReferential<int, string>> dataProviderFactory, int decodableRest) 
+            : base(dataProviderFactory.Create(), decodableRest)
+        {
+            _returnValue = string.Empty;
+        }
+
+        public ArabianToRomanNumberDecoder(IDecodingReferential<int, string> dataProvider, int decodableRest)
+            : base(dataProvider, decodableRest)
         {
             _returnValue = string.Empty;
         }

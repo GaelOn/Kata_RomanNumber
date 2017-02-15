@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}|Tests unitaires">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD/DecoderFactory.cs">
     <Files>
       <File FileName="Kata_RomanNumber_TDD État" />
-      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="26" Column="10" />
+      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="35" Column="2" />
+      <File FileName="Kata_RomanNumber_TDD/RomanToArabianNumberConverter.cs" Line="29" Column="41" />
       <File FileName="Kata_RomanNumber_TDD/RomanUnit.cs" Line="22" Column="55" />
       <File FileName="Kata_RomanNumber_TDD/RomanNumber.cs" Line="57" Column="20" />
-      <File FileName="Kata_RomanNumber_TDD/IFactory.cs" Line="17" Column="2" />
-      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberDecoder.cs" Line="3" Column="52" />
-      <File FileName="Kata_RomanNumber_TDD/BaseDecoder.cs" Line="3" Column="71" />
-      <File FileName="Kata_RomanNumber_TDD/RomanToArabianNumberConverter.cs" Line="1" Column="1" />
+      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberDecoder.cs" Line="5" Column="5" />
+      <File FileName="Kata_RomanNumber_TDD/RomanToArabianNumberDecoder.cs" Line="8" Column="20" />
+      <File FileName="Kata_RomanNumber_TDD/BaseDecoder.cs" Line="8" Column="94" />
+      <File FileName="Kata_RomanNumber_TDD/DecoderFactory.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">

@@ -5,7 +5,7 @@ namespace Kata_RomanNumber_TDD
         protected TIn _decodableRest;
         protected TOut _returnValue;
 
-        protected BaseDecoder(TIn decodableRest, IDecodingReferential<TIn, TOut> decodingData)
+        protected BaseDecoder(IDecodingReferential<TIn, TOut> decodingData, TIn decodableRest)
         {
             _decodableRest = decodableRest;
             DecodingData = decodingData;
