@@ -1,11 +1,6 @@
 ﻿<Properties StartupConfiguration="{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}|Tests unitaires">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD/RomanNumber.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD État">
     <Files>
-      <File FileName="Kata_RomanNumber_TDD/RomanUnit.cs" Line="88" Column="5" />
-      <File FileName="Kata_RomanNumber_TDD/RomanNumber.cs" Line="6" Column="49" />
-      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="108" Column="6" />
-      <File FileName="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" Line="28" Column="38" />
-      <File FileName="Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" Line="1" Column="1" />
       <File FileName="Kata_RomanNumber_TDD État" />
     </Files>
     <Pads>
@@ -14,7 +9,10 @@
           <Node name="Kata_RomanNumber_TDD" expanded="True">
             <Node name="Test_RomanNumberConverter" expanded="True">
               <Node name="Test_RomanNumberConverter" expanded="True">
-                <Node name="TestConversionRomanToArabian" expanded="True" />
+                <Node name="TestConversionArabianToRoman" expanded="True" />
+                <Node name="TestConversionRomanToArabian" expanded="True">
+                  <Node name="TestValidation_When_M_Is_Used_Then_It_Can_Be_Repeated_As_Many_Time_As_Required" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
