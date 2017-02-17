@@ -2,6 +2,7 @@ using NUnit.Framework;
 using FluentAssertions;
 using Kata_RomanNumber_TDD;
 using System;
+using Autofac;
 
 namespace Test_RomanNumberConverter
 {
@@ -9,14 +10,17 @@ namespace Test_RomanNumberConverter
     [TestFixture]
     public class TestConversionRomanToArabian
     {
-        Converter _generalConverter;
+        IConverter _generalConverter;
         RomanToArabianNumberConverter _specializeConverter;
 
         [SetUp]
         public void Init()
         {
-            _generalConverter = new Converter();
-            _specializeConverter = new RomanToArabianNumberConverter(_generalConverter);
+            var builder = new ContainerBuilder();
+            builder.RegisterModule(new RomanNumberModule());
+            var container = builder.Build();
+            _specializeConverter = container.Resolve<RomanToArabianNumberConverter>();
+            _generalConverter = container.Resolve<IConverter>();
         }
 
         [Test, TestCaseSource(typeof(GivenData), "BadRomanNumberCase")]

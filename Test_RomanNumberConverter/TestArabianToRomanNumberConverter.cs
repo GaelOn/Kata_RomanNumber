@@ -1,20 +1,24 @@
 ﻿using NUnit.Framework;
 using FluentAssertions;
 using Kata_RomanNumber_TDD;
+using Autofac;
 
 namespace Test_RomanNumberConverter
 {
     [TestFixture]
     public class TestConversionArabianToRoman
     {
-        Converter _generalConverter;
+        IConverter _generalConverter;
         ArabianToRomanNumberConverter _specializeConverter;
 
         [SetUp]
         public void Init()
         {
-            _generalConverter = new Converter();
-            _specializeConverter = new ArabianToRomanNumberConverter(_generalConverter);
+            var builder = new ContainerBuilder();
+            builder.RegisterModule(new RomanNumberModule());
+            var container = builder.Build();
+            _specializeConverter = container.Resolve<ArabianToRomanNumberConverter>();
+            _generalConverter = container.Resolve<IConverter>();
         }
 
         [Test, TestCaseSource(typeof(GivenData), "TestBasicCases")]
