@@ -1,4 +1,6 @@
-namespace Kata_RomanNumber_TDD
+using RomanNumberContract;
+
+namespace RomanNumberData
 {
     public class DecoderFactory<TIn, TOut> : IFactory<TIn, IDecoder<TIn, TOut>>
     {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using RomanNumberContract;
 
-namespace Kata_RomanNumber_TDD
+namespace RomanNumberData
 {
 
     public class RomanToArabianNumberDecodingData : IDecodingReferential<string, int>

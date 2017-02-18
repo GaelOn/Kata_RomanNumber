@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Kata_RomanNumber_TDD
+namespace RomanNumberContract
 {
     public interface IDecodingReferential<TEncode, TDecode>
     {

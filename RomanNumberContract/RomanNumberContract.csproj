@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38F18D7F-401B-42A7-AD31-27CEA8368847}</ProjectGuid>
+    <ProjectGuid>{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Kata_RomanNumber_TDD</RootNamespace>
-    <AssemblyName>Kata_RomanNumber_TDD</AssemblyName>
+    <RootNamespace>RomanNumberContract</RootNamespace>
+    <AssemblyName>RomanNumberContract</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,20 +34,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationException.cs" />
-    <Compile Include="RomanNumber.cs" />
-    <Compile Include="ArabianToRomanNumberConverter.cs" />
-    <Compile Include="RomanToArabianNumberConverter.cs" />
-    <Compile Include="RomanNumberModule.cs" />
+    <Compile Include="IConverter.cs" />
+    <Compile Include="IDecoder.cs" />
+    <Compile Include="IDecodingReferential.cs" />
+    <Compile Include="IFactory.cs" />
+    <Compile Include="BaseDecoder.cs" />
+    <Compile Include="IRomanNumberRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RomanNumberContract\RomanNumberContract.csproj">
-      <Project>{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}</Project>
-      <Name>RomanNumberContract</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

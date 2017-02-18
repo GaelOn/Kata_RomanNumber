@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RomanNumberContract;
 
 namespace Kata_RomanNumber_TDD
 {
@@ -39,20 +40,26 @@ namespace Kata_RomanNumber_TDD
 
         // use builder to avoid validating un roman number constructor, 
         // because validation throw error
-        public static class RomanNumberBuilder
+        public class RomanNumberBuilder
         {
+            private readonly IRomanNumberRepository _RomanNumberDataRepository;
 
-            public static RomanNumber BuildRomanNumber(string maybeRoman)
+            public RomanNumberBuilder(IRomanNumberRepository RomanNumberDataRepository)
+            {
+                _RomanNumberDataRepository = RomanNumberDataRepository;
+            }
+
+            public RomanNumber BuildRomanNumber(string maybeRoman)
             {
                 Valid(maybeRoman);
                 return new RomanNumber(maybeRoman);
             }
 
-            private static void Valid(string toBeValidated)
+            private void Valid(string toBeValidated)
             {
-                var validChar = RomanUnit.GetValidCharacterWithLengthOne();
-                var validCombinaison = RomanUnit.GetValidCharacterWithLengthTwo();
-                var forbidenCharacterFollowingCombinaison = RomanUnit.GetForbidenCharacterFollowingCombinaison();
+                var validChar = _RomanNumberDataRepository.GetValidCharacterWithLengthOne();
+                var validCombinaison = _RomanNumberDataRepository.GetValidCharacterWithLengthTwo();
+                var forbidenCharacterFollowingCombinaison = _RomanNumberDataRepository.GetForbidenCharacterFollowingCombinaison();
                 // init the one pass validation algo
                 var previousChar = toBeValidated[0].ToString();
                 int repetition = 1;
@@ -68,16 +75,17 @@ namespace Kata_RomanNumber_TDD
                 }
             }
 
-            private static string GetPreviousChar(string oldPreviousChar, string curChar)
+            private string GetPreviousChar(string oldPreviousChar, string curChar)
             {
-                if (RomanUnit.TransformBackFromUnit(oldPreviousChar) < RomanUnit.TransformBackFromUnit(curChar))
+                if (_RomanNumberDataRepository.TransformBackFromUnit(oldPreviousChar)
+                    < _RomanNumberDataRepository.TransformBackFromUnit(curChar))
                 {
                     return oldPreviousChar + curChar;
                 }
                 return curChar;
             }
 
-            private static void IsValidCharacter(List<string> validChar, string charac)
+            private void IsValidCharacter(List<string> validChar, string charac)
             {
                 if (!validChar.Contains(charac))
                 {
@@ -85,7 +93,7 @@ namespace Kata_RomanNumber_TDD
                 }
             }
 
-            private static void ValidRepetition(string curChar, string previousChar, ref int repetition)
+            private void ValidRepetition(string curChar, string previousChar, ref int repetition)
             {
                 repetition = (previousChar != "M" && curChar == previousChar) ?
                              repetition + 1 : 1;
@@ -95,7 +103,7 @@ namespace Kata_RomanNumber_TDD
                 }
             }
 
-            private static void ValidCharacterFollowingCombinaison(List<Tuple<string, string>> forbidenValueFollowingCombinaison, string previous, string cur)
+            private void ValidCharacterFollowingCombinaison(List<Tuple<string, string>> forbidenValueFollowingCombinaison, string previous, string cur)
             {
                 if (forbidenValueFollowingCombinaison.Any(tuple => tuple.Item1 == previous && tuple.Item2 == cur))
                 {
@@ -103,16 +111,16 @@ namespace Kata_RomanNumber_TDD
                 }
             }
 
-            private static void ValidAllCombinaisonAreAllowedOne(List<string> validCombinaison, string curChar, string previousChar)
+            private void ValidAllCombinaisonAreAllowedOne(List<string> validCombinaison, string curChar, string previousChar)
             {
                 var twoFollowingChar = previousChar + curChar;
                 if (!validCombinaison.Contains(twoFollowingChar) &&
-                    RomanUnit.TransformBackFromUnit(previousChar) < RomanUnit.TransformBackFromUnit(curChar))
+                    _RomanNumberDataRepository.TransformBackFromUnit(previousChar)
+                    < _RomanNumberDataRepository.TransformBackFromUnit(curChar))
                 {
                     throw new ValidationException($"The combinaison {twoFollowingChar} is not an allowed one for roman number.");
                 }
             }
-
         }
     }
 }

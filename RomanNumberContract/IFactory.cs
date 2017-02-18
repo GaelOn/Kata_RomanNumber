@@ -1,4 +1,4 @@
-﻿namespace Kata_RomanNumber_TDD
+﻿namespace RomanNumberContract
 {
     public interface IFactory<out TOut>
     {

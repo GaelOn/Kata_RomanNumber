@@ -1,4 +1,6 @@
-﻿namespace Kata_RomanNumber_TDD
+﻿using RomanNumberContract;
+
+namespace RomanNumberAlgorithm
 {
     public class Converter : IConverter
     {

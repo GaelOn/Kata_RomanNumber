@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Kata_RomanNumber_TDD
+namespace RomanNumberData
 {
     public class RomanUnit : IEnumerable<int>, IEnumerable<string>
     {

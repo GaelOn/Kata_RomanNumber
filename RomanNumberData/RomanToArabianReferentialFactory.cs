@@ -1,4 +1,6 @@
-namespace Kata_RomanNumber_TDD
+using RomanNumberContract;
+
+namespace RomanNumberData
 {
     public class RomanToArabianReferentialFactory : IFactory<IDecodingReferential<string, int>>
     {

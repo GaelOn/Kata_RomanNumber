@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}|Tests unitaires" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Kata_RomanNumber_TDD/RomanToArabianNumberDecodingData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Test_RomanNumberConverter/TestConversionRomanToArabian.cs">
     <Files>
       <File FileName="Kata_RomanNumber_TDD État" />
-      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="19" Column="43" />
-      <File FileName="Kata_RomanNumber_TDD/DecoderFactory.cs" Line="3" Column="80" />
-      <File FileName="Kata_RomanNumber_TDD/RomanToArabianNumberDecodingData.cs" Line="6" Column="50" />
-      <File FileName="Kata_RomanNumber_TDD/RomanNumberModule.cs" Line="18" Column="147" />
-      <File FileName="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" Line="13" Column="10" />
-      <File FileName="Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" Line="21" Column="65" />
+      <File FileName="Kata_RomanNumber_TDD/ArabianToRomanNumberConverter.cs" Line="24" Column="76" />
+      <File FileName="Kata_RomanNumber_TDD/RomanToArabianNumberDecodingData.cs" Line="7" Column="6" />
+      <File FileName="Kata_RomanNumber_TDD/RomanNumberModule.cs" Line="10" Column="34" />
+      <File FileName="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" Line="8" Column="28" />
+      <File FileName="Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" Line="26" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -15,12 +14,7 @@
           <Node name="Kata_RomanNumber_TDD" expanded="True">
             <Node name="Test_RomanNumberConverter" expanded="True">
               <Node name="Test_RomanNumberConverter" expanded="True">
-                <Node name="TestConversionArabianToRoman" expanded="True">
-                  <Node name="TestDecoding" selected="True" />
-                </Node>
-                <Node name="TestConversionRomanToArabian" expanded="True">
-                  <Node name="TestValidation_When_M_Is_Used_Then_It_Can_Be_Repeated_As_Many_Time_As_Required" expanded="True" />
-                </Node>
+                <Node name="TestConversionArabianToRoman" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -31,8 +25,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/gaeldupire/Projects/Kata_RomanNumber_TDD/Kata_RomanNumber_TDD/RomanToArabianNumberConverter.cs" relfile="Kata_RomanNumber_TDD/RomanToArabianNumberConverter.cs" line="29" column="1" />
-      <Breakpoint file="/Users/gaeldupire/Projects/Kata_RomanNumber_TDD/Test_RomanNumberConverter/TestConversionRomanToArabian.cs" relfile="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" line="19" column="13" />
+      <Breakpoint file="/Users/gaeldupire/Projects/Kata_RomanNumber_TDD/Kata_RomanNumber_TDD/RomanToArabianNumberConverter.cs" relfile="Kata_RomanNumber_TDD/RomanToArabianNumberConverter.cs" line="30" column="1" />
+      <Breakpoint file="/Users/gaeldupire/Projects/Kata_RomanNumber_TDD/Test_RomanNumberConverter/TestConversionRomanToArabian.cs" relfile="Test_RomanNumberConverter/TestConversionRomanToArabian.cs" line="24" column="1" />
+      <Breakpoint file="/Users/gaeldupire/Projects/Kata_RomanNumber_TDD/Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" relfile="Test_RomanNumberConverter/TestArabianToRomanNumberConverter.cs" line="26" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

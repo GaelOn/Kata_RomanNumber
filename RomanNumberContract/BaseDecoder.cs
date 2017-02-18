@@ -1,4 +1,4 @@
-namespace Kata_RomanNumber_TDD
+namespace RomanNumberContract
 {
     public abstract class BaseDecoder<TIn, TOut> : IDecoder<TIn, TOut>
     {

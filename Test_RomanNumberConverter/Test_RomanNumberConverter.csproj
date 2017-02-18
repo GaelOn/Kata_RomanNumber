@@ -42,14 +42,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestArabianToRomanNumberConverter.cs" />
+    <Compile Include="TestConvertionArabianToRomanNumber.cs" />
     <Compile Include="GivenData.cs" />
     <Compile Include="TestConversionRomanToArabian.cs" />
+    <Compile Include="ArabianToRomanNumberDecoder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kata_RomanNumber_TDD\Kata_RomanNumber_TDD.csproj">
       <Project>{38F18D7F-401B-42A7-AD31-27CEA8368847}</Project>
       <Name>Kata_RomanNumber_TDD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomanNumberContract\RomanNumberContract.csproj">
+      <Project>{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}</Project>
+      <Name>RomanNumberContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomanNumberAlgorithm\RomanNumberAlgorithm.csproj">
+      <Project>{017AC8D9-D622-4202-911B-52B2915B2320}</Project>
+      <Name>RomanNumberAlgorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomanNumberData\RomanNumberData.csproj">
+      <Project>{D11F74FD-1D5C-4F2F-B451-4DCD8C4E5FEA}</Project>
+      <Name>RomanNumberData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

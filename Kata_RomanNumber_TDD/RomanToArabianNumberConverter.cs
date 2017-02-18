@@ -1,4 +1,5 @@
 using System;
+using RomanNumberContract;
 
 namespace Kata_RomanNumber_TDD
 {

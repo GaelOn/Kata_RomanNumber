@@ -1,6 +1,7 @@
 using System;
+using RomanNumberContract;
 
-namespace Kata_RomanNumber_TDD
+namespace RomanNumberData
 {
     public class RomanToArabianNumberDecoder : BaseDecoder<string, int>
     {

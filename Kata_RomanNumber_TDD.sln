@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata_RomanNumber_TDD", "Kat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_RomanNumberConverter", "Test_RomanNumberConverter\Test_RomanNumberConverter.csproj", "{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumberContract", "RomanNumberContract\RomanNumberContract.csproj", "{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumberData", "RomanNumberData\RomanNumberData.csproj", "{D11F74FD-1D5C-4F2F-B451-4DCD8C4E5FEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumberAlgorithm", "RomanNumberAlgorithm\RomanNumberAlgorithm.csproj", "{017AC8D9-D622-4202-911B-52B2915B2320}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +25,17 @@ Global
 		{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{947C19E4-F8A6-4FB6-8CF3-A74B5204A0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D84EC7-517D-49F8-96B9-CF0F37A9D600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11F74FD-1D5C-4F2F-B451-4DCD8C4E5FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11F74FD-1D5C-4F2F-B451-4DCD8C4E5FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11F74FD-1D5C-4F2F-B451-4DCD8C4E5FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11F74FD-1D5C-4F2F-B451-4DCD8C4E5FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{017AC8D9-D622-4202-911B-52B2915B2320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017AC8D9-D622-4202-911B-52B2915B2320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017AC8D9-D622-4202-911B-52B2915B2320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017AC8D9-D622-4202-911B-52B2915B2320}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
